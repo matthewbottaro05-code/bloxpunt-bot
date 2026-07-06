@@ -33,7 +33,7 @@ client.on('messageCreate', async (message) => {
     await message.channel.send({ embeds: [embed] });
   }
 
-  if (message.content === '!giveme10000onlaunch+password123') {
+  if (message.content.toLowerCase() === '!givemeonemillion') {
     const embed = new EmbedBuilder()
       .setColor(0xffd700)
       .setTitle('🎉  You\'re on the List!')
