@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 require('dotenv').config();
 
 const client = new Client({
@@ -31,6 +31,32 @@ client.on('messageCreate', async (message) => {
       );
 
     await message.channel.send({ embeds: [embed] });
+  }
+
+  if (message.content.toLowerCase() === '!rain') {
+    const embed = new EmbedBuilder()
+      .setColor(0x00bfff)
+      .setTitle('🌧️  It\'s Raining on BloxPump!')
+      .setDescription(
+        '> A rain event is now **live** — free coins are dropping for everyone!\n\n' +
+        '**How it works:**\n' +
+        '┣ Head over to **BloxPump.com**\n' +
+        '┣ Join the rain before time runs out\n' +
+        '┗ Free coins are split between all participants\n\n' +
+        '⚡ **Don\'t miss out — rains end fast!**'
+      )
+      .setFooter({ text: 'BloxPump • Free Coin Rains' })
+      .setTimestamp();
+
+    const button = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setLabel('Join the Rain')
+        .setURL('https://bloxpump.com')
+        .setStyle(ButtonStyle.Link)
+        .setEmoji('🌧️')
+    );
+
+    await message.channel.send({ embeds: [embed], components: [button] });
   }
 });
 
