@@ -33,24 +33,6 @@ client.on('messageCreate', async (message) => {
     await message.channel.send({ embeds: [embed] });
   }
 
-  if (message.content.toLowerCase() === 'giveme10000onlaunch') {
-    const embed = new EmbedBuilder()
-      .setColor(0xffd700)
-      .setTitle('🎉  You\'re on the List!')
-      .setDescription(
-        `> **${message.author}**, your account has been awarded **50,000 BC** on BloxPump!\n\n` +
-        '**Your coins will be waiting for you the moment the site goes live.**\n\n' +
-        '┣ 💰 **Reward:** 50,000 BC\n' +
-        '┣ 🌐 **Site:** BloxPump.com\n' +
-        '┗ 🚀 **Status:** Credited on launch\n\n' +
-        '*Stay tuned — launch is coming soon!*'
-      )
-      .setFooter({ text: 'BloxPump • Launch Reward' })
-      .setTimestamp();
-
-    await message.channel.send({ embeds: [embed] });
-  }
-
   if (message.content.toLowerCase() === '!rain') {
     const embed = new EmbedBuilder()
       .setColor(0x00bfff)
